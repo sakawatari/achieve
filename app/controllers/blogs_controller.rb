@@ -21,7 +21,6 @@ class BlogsController < ApplicationController
       redirect_to blogs_path, notice: "ブログを作成しました！"
       NoticeMailer.sendmail_blog(@blog).deliver
     else
-      # 入力フォームを再描画します。
       render action: 'new'
     end
   end
@@ -34,10 +33,8 @@ class BlogsController < ApplicationController
     if @blog.save
       redirect_to blogs_path, notice: "ブログを更新しました！"
     else
-      # 入力フォームを再描画します。
       render action: 'edit'
     end
-
   end
   
   def destroy
@@ -50,7 +47,6 @@ class BlogsController < ApplicationController
     render :new if @blog.invalid?
   end
 
-# ストロングパラメーターの設定
   private
     def blogs_params
       params.require(:blog).permit(:title, :content)
@@ -59,6 +55,4 @@ class BlogsController < ApplicationController
     def set_blog
       @blog = Blog.find(params[:id])
     end
-    
-
 end
