@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
-
+# deviseのルーティング
   devise_for :users
   resources :contacts, only: [:new, :create] do
     collection do
       post :confirm
     end
   end
-  
+  # ブログブログのルーティング
   resources :blogs, only: [:index, :new, :create, :edit, :update, :destroy] do
     collection do
       post :confirm
@@ -14,6 +14,12 @@ Rails.application.routes.draw do
   end
   
   root 'top#index'
+    
+  # letter_opener_webのroutingを設定
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
+  
   # get 'blogs' => 'blogs#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
