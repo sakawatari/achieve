@@ -5,7 +5,7 @@
 			<% @blogs.each do |blog| %>
 				<div class="row">
 					<div class="avatar_wrapper">
-						<%= image_tag blog.user.avatar.to_s, :size => "50x50", :class => "avatar_img"%>
+						<%= profile_img(blog.user) if profile_img(blog.user) %>
 					</div>
 						<p><%= blog.user.name %>さんが投稿しました。</p>
 						<h4><strong><%= blog.title %></strong></h4>
