@@ -14,6 +14,21 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @comment = Comment.find(params[:id])
+    @blog = @comment.blog
+    respond_to do |format|
+      if @comment.destroy
+        format.html { redirect_to blog_path(@blog), notice: "コメントを削除しました！" }
+        format.json { render :show, status: :delete, location: @comment }
+        format.js { render :index }
+      else
+        format.html { render :new }
+        format.json { render json: @comment.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   private
     def comment_params
       params.require(:comment).permit(:blog_id, :content)

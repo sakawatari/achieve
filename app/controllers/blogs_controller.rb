@@ -10,6 +10,7 @@ class BlogsController < ApplicationController
   def show
     @comment = @blog.comments.build
     @comments = @blog.comments
+    # binding.pry
   end
 
   def new
