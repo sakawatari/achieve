@@ -1,11 +1,12 @@
 class User < ActiveRecord::Base
   has_many :blogs, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   devise :database_authenticatable, :registerable,
 	:recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable
-	
+
 	mount_uploader :avatar, AvatarUploader
-	
+
 	def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
 		user = User.find_by(email: auth.info.email)
 
@@ -23,7 +24,7 @@ class User < ActiveRecord::Base
 		end
 		user
 	end
-	
+
 	def self.find_for_twitter_oauth(auth, signed_in_resource = nil)
 		user = User.find_by(provider: auth.provider, uid: auth.uid)
 
@@ -41,11 +42,11 @@ class User < ActiveRecord::Base
 		end
 		user
 	end
-	
+
 	def self.create_unique_string
 		SecureRandom.uuid
 	end
-	
+
 	def update_with_password(params, *options)
 		if provider.blank?
 			super
