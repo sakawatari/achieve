@@ -1,0 +1,8 @@
+<div class="section-wrapper">
+  <p>フォロワー</p>
+</div>
+<% @follower.each do |user| %>
+  <div class="follow-wrapper">
+    <%= user.name %>
+  </div>
+<% end %>

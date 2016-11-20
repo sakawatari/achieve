@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="container-child basic-container">
+    <div class="basic-wrapper">
+      <%= profile_img(@user) %>
+      <p>ユーザーネーム：<%= @user.name %></p>
+    </div>
+    <%= render "followed_users" %>
+    <%= render "follower_users" %>
+  </div>
+</div>
