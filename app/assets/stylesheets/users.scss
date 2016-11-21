@@ -8,22 +8,22 @@
 }
 
 .follow-container {
-	width: 150px;
-	height: 100%;
-	background-color: #f0ede4;
-	margin: 10px;
-	padding: 10px;
-	word-wrap: break-word;
+  width: 150px;
+  height: 100%;
+  background-color: #f0ede4;
+  margin: 10px;
+  padding: 10px;
+  word-wrap: break-word;
 }
 
 .follow-container img {
-	height: 100%;
-	width: 100%;
-	margin-bottom: 10px;
+  height: 100%;
+  width: 100%;
+  margin-bottom: 10px;
 }
 
 .follow-container a {
-	text-decoration: none;
+  text-decoration: none;
 }
 
 .basic-wrapper {
@@ -48,14 +48,14 @@
 }
 
 .follow-wrapper {
-	height: 20px;
-	line-height: 20px;
-	border-top: 1px solid black;
-	transition: 0.3s;
+  height: 20px;
+  line-height: 20px;
+  border-top: 1px solid black;
+  transition: 0.3s;
 }
 
 .follow-wrapper:hover {
-	height: 60px;
-	line-height: 60px;
-	font-size: large;
+  height: 60px;
+  line-height: 60px;
+  font-size: large;
 }
