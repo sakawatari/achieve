@@ -38,7 +38,7 @@ div {
 }
 
 #notice {
-  color: grey;
+  // color: green;
 }
 
 .field_with_errors {
@@ -48,11 +48,11 @@ div {
 }
 
 #error_explanation {
+  width: 450px;
   border: 2px solid red;
   padding: 7px;
   padding-bottom: 0;
   margin-bottom: 20px;
-  margin: auto;
   background-color: #f0f0f0;
 
   h2 {

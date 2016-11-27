@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  resources :submit_requests do
+    get 'inbox', on: :collection
+    member do
+      patch 'approve'
+      patch 'reject'
+    end
+  end
   resources :tasks
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
     devise_for :users, controllers: {
