@@ -12,7 +12,6 @@
       var pusher = new Pusher('<%= ENV["PUSHER_KEY"] %>',{
         encrypted: true
       });
-
       var channel = pusher.subscribe("user_<%= current_user.id %>_channel");
       channel.bind('comment_created', function(data) {
         alert(data.message);
@@ -28,7 +27,6 @@
   <header>
     <nav class="navbar navbar-default">
       <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
             <span class="sr-only">Toggle navigation</span>
@@ -38,7 +36,6 @@
           </button>
           <%= link_to "Achieve", root_path, class: "navbar-brand" %>
         </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
             <%= link_to  notifications_index_path, class: "navbar-brand" do %>
@@ -56,7 +53,6 @@
                 <li><%= link_to 'タスク引受一覧', inbox_submit_requests_path if user_signed_in? %></li>
               </ul>
             </li>
-            <!--ログイン用のリンク-->
             <% if user_signed_in? %>
               <li><%= link_to "マイページ", edit_user_registration_path %></li>
               <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>

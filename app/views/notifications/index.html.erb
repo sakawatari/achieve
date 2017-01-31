@@ -3,12 +3,16 @@
   <% @notifications.each do |notification| %>
   <hr>
     <li>
-      <span><%= notification.read %></span>
+      <% if notification.read == true %>
+        <span class="read-label">既読</span>
+      <% else %>
+        <p class="unread-label">未読</p>
+      <% end %>
       <p>
         <%= notification.comment.user.try(:name) %>さんが
-        あなたのブログ（<%= link_to "#{notification.comment.blog.title}", blog_path(notification.comment.blog, notification_id: notification.id) %>）にコメントしました。
+        あなたのブログ <%= link_to "#{notification.comment.blog.title}", blog_path(notification.comment.blog, notification_id: notification.id), class: 'btn btn-primary btn-xs' %> にコメントしました。
       </p>
-      <p><%= notification.created_at %></p>
+      <p><%= notification.created_at.strftime('%y年%m月%d日 %H:%M') %></p>
     </li>
   <% end %>
 </ul>
